@@ -310,7 +310,7 @@ pre {
 
 .code-block pre {
   margin: 0;
-  padding: 18px 18px 18px;
+  padding: 18px 60px 18px 18px;
   overflow-x: auto;
 }
 
