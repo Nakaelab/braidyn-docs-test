@@ -22,16 +22,16 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">User Guide</p>
-        <h1>Accessing BraiDyn-BC data with CLI and AWS EC2</h1>
+        <p class="eyebrow">Data Access Protocol</p>
+        <h1>Seamless Data Integration for Your Research</h1>
         <p class="lead">
-          This page explains how to access the BraiDyn-BC data from your local machine
-          using AWS CLI, and how to work with the same data directly from an AWS EC2 instance.
+          Streamline your workflow with flexible, high-performance access to the BraiDyn-BC dataset.
+          Choose between local environment exploration or scalable, cloud-native analytics on AWS EC2.
         </p>
 
         <div class="hero-links">
-          <a class="button primary" href="#local-cli">Start with local CLI</a>
-          <a class="button secondary" href="#ec2">Read EC2 access guide</a>
+          <a class="button primary" href="#local-cli">Explore Local Setup</a>
+          <a class="button secondary" href="#ec2">View Cloud Architecture</a>
         </div>
 
         <div class="info-strip">
@@ -86,7 +86,7 @@
             <h3>Check that AWS CLI is installed</h3>
             <p>Open Terminal or PowerShell and run:</p>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-check-cli">Copy</button>
+              <button class="copy-button" data-copy-target="code-check-cli"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-check-cli">aws --version</code></pre>
             </div>
           </div>
@@ -98,7 +98,7 @@
             <h3>List the bucket contents</h3>
             <p>Use this command to confirm that you can access the dataset:</p>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-list-local">Copy</button>
+              <button class="copy-button" data-copy-target="code-list-local"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-list-local">aws s3 ls s3://braidyn-bc-buckets --no-sign-request</code></pre>
             </div>
           </div>
@@ -110,7 +110,7 @@
             <h3>Download all data</h3>
             <p>This command downloads the contents of the bucket into a local <code>data</code> folder:</p>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-sync-local">Copy</button>
+              <button class="copy-button" data-copy-target="code-sync-local"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-sync-local">aws s3 sync s3://braidyn-bc-buckets ./data/ --no-sign-request</code></pre>
             </div>
           </div>
@@ -122,7 +122,7 @@
             <h3>Download a specific folder only</h3>
             <p>If you only need a subset, specify the path:</p>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-partial-local">Copy</button>
+              <button class="copy-button" data-copy-target="code-partial-local"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-partial-local">aws s3 sync "s3://braidyn-bc-buckets/sub-VG1-GC#105" "./data/sub-VG1-GC#105" --no-sign-request</code></pre>
             </div>
           </div>
@@ -157,7 +157,7 @@
           <div class="step-content">
             <h3>Confirm AWS CLI is available</h3>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-check-ec2-cli">Copy</button>
+              <button class="copy-button" data-copy-target="code-check-ec2-cli"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-check-ec2-cli">aws --version</code></pre>
             </div>
           </div>
@@ -168,7 +168,7 @@
           <div class="step-content">
             <h3>List files in the S3 bucket</h3>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-list-ec2">Copy</button>
+              <button class="copy-button" data-copy-target="code-list-ec2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-list-ec2">aws s3 ls s3://braidyn-bc-buckets --no-sign-request</code></pre>
             </div>
           </div>
@@ -179,7 +179,7 @@
           <div class="step-content">
             <h3>Download data to the EC2 instance</h3>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-sync-ec2">Copy</button>
+              <button class="copy-button" data-copy-target="code-sync-ec2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-sync-ec2">aws s3 sync s3://braidyn-bc-buckets ./data/ --no-sign-request</code></pre>
             </div>
           </div>
@@ -190,7 +190,7 @@
           <div class="step-content">
             <h3>Download only a specific folder on EC2</h3>
             <div class="code-block">
-              <button class="copy-button" data-copy-target="code-partial-ec2">Copy</button>
+              <button class="copy-button" data-copy-target="code-partial-ec2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-partial-ec2">aws s3 sync "s3://braidyn-bc-buckets/sub-VG1-GC#105" "./data/sub-VG1-GC#105" --no-sign-request</code></pre>
             </div>
           </div>

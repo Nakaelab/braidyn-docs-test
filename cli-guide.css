@@ -314,12 +314,14 @@ pre {
   overflow-x: auto;
 }
 
-.code-block code {
+.code-block pre code {
   color: #e8eef5;
   font-size: 0.95rem;
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
+  background: transparent;
+  padding: 0;
 }
 
 .copy-button {
@@ -328,13 +330,14 @@ pre {
   right: 10px;
   appearance: none;
   border: 0;
-  border-radius: 999px;
-  padding: 7px 12px;
+  border-radius: 6px;
+  padding: 8px;
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
   cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.2s ease;
 }
 
