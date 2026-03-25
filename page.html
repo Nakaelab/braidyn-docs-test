@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI / EC2 Access Guide | BraiDyn-BC Database</title>
+  <link rel="stylesheet" href="cli-guide.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand">BraiDyn-BC Database</a>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./database.html">Database</a>
+        <a href="#local-cli">Local CLI</a>
+        <a href="#ec2">AWS EC2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">User Guide</p>
+        <h1>Accessing BraiDyn-BC data with CLI and AWS EC2</h1>
+        <p class="lead">
+          This page explains how to access the BraiDyn-BC data from your local machine
+          using AWS CLI, and how to work with the same data directly from an AWS EC2 instance.
+        </p>
+
+        <div class="hero-links">
+          <a class="button primary" href="#local-cli">Start with local CLI</a>
+          <a class="button secondary" href="#ec2">Read EC2 access guide</a>
+        </div>
+
+        <div class="info-strip">
+          <div class="info-card">
+            <span class="info-label">S3 Bucket</span>
+            <code>s3://braidyn-bc-buckets</code>
+          </div>
+          <div class="info-card">
+            <span class="info-label">Browser View</span>
+            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html" target="_blank" rel="noopener noreferrer">
+              Open S3 index page
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container narrow">
+        <h2>Overview</h2>
+        <p>
+          There are two main ways to work with the dataset:
+        </p>
+        <div class="grid two">
+          <article class="card">
+            <h3>Local machine + AWS CLI</h3>
+            <p>
+              Suitable when you want to browse, test, or download data to your own computer.
+            </p>
+          </article>
+          <article class="card">
+            <h3>AWS EC2 + AWS CLI</h3>
+            <p>
+              Suitable when the dataset is large and you want to process it directly on AWS
+              without storing everything on your local machine.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="local-cli">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="section-kicker">Method 1</p>
+          <h2>Download from your local machine using AWS CLI</h2>
+        </div>
+
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Check that AWS CLI is installed</h3>
+            <p>Open Terminal or PowerShell and run:</p>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-check-cli">Copy</button>
+              <pre><code id="code-check-cli">aws --version</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>List the bucket contents</h3>
+            <p>Use this command to confirm that you can access the dataset:</p>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-list-local">Copy</button>
+              <pre><code id="code-list-local">aws s3 ls s3://braidyn-bc-buckets --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Download all data</h3>
+            <p>This command downloads the contents of the bucket into a local <code>data</code> folder:</p>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-sync-local">Copy</button>
+              <pre><code id="code-sync-local">aws s3 sync s3://braidyn-bc-buckets ./data/ --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Download a specific folder only</h3>
+            <p>If you only need a subset, specify the path:</p>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-partial-local">Copy</button>
+              <pre><code id="code-partial-local">aws s3 sync "s3://braidyn-bc-buckets/sub-VG1-GC#105" "./data/sub-VG1-GC#105" --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="ec2">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="section-kicker">Method 2</p>
+          <h2>Access the data directly from AWS EC2</h2>
+        </div>
+
+        <p class="section-intro">
+          This option is useful when the dataset is large and you want to analyze it on AWS
+          instead of downloading it to your personal computer.
+        </p>
+
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Connect to your EC2 instance</h3>
+            <p>
+              Start an EC2 instance and connect to it using SSH or EC2 Instance Connect.
+            </p>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Confirm AWS CLI is available</h3>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-check-ec2-cli">Copy</button>
+              <pre><code id="code-check-ec2-cli">aws --version</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>List files in the S3 bucket</h3>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-list-ec2">Copy</button>
+              <pre><code id="code-list-ec2">aws s3 ls s3://braidyn-bc-buckets --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Download data to the EC2 instance</h3>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-sync-ec2">Copy</button>
+              <pre><code id="code-sync-ec2">aws s3 sync s3://braidyn-bc-buckets ./data/ --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Download only a specific folder on EC2</h3>
+            <div class="code-block">
+              <button class="copy-button" data-copy-target="code-partial-ec2">Copy</button>
+              <pre><code id="code-partial-ec2">aws s3 sync "s3://braidyn-bc-buckets/sub-VG1-GC#105" "./data/sub-VG1-GC#105" --no-sign-request</code></pre>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="notes">
+      <div class="container narrow">
+        <h2>Notes</h2>
+        <div class="grid two">
+          <article class="card note-card">
+            <h3>Storage</h3>
+            <p>
+              Make sure your local machine or EC2 instance has enough disk space before starting a large download.
+            </p>
+          </article>
+
+          <article class="card note-card">
+            <h3>AWS costs</h3>
+            <p>
+              Downloading on your own computer does not require EC2, but using an EC2 instance may incur AWS charges.
+            </p>
+          </article>
+
+          <article class="card note-card">
+            <h3>Stopping downloads</h3>
+            <p>
+              You can stop a running download with <code>Ctrl + C</code> and resume later with the same
+              <code>aws s3 sync</code> command.
+            </p>
+          </article>
+
+          <article class="card note-card">
+            <h3>EC2 shutdown</h3>
+            <p>
+              If you use EC2, stop the instance after you are done to avoid unnecessary charges.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© BraiDyn-BC Database</p>
+      <a href="./index.html">Back to main site</a>
+    </div>
+  </footer>
+
+  <script src="cli-guide.js"></script>
+</body>
+</html>
