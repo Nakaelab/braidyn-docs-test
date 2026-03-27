@@ -27,6 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ── OS tab logic ── */
+  document.querySelectorAll(".os-tabs").forEach((tabGroup) => {
+    const tabs = tabGroup.querySelectorAll(".os-tab");
+    const card = tabGroup.closest(".step-content");
+    const panels = card.querySelectorAll(".os-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const os = tab.getAttribute("data-os");
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        panels.forEach((p) => {
+          p.classList.toggle("active", p.getAttribute("data-os") === os);
+        });
+      });
+    });
+  });
+
   /* ── Download selector logic ── */
 
   const BUCKET = "s3://braidyn-bc-buckets";

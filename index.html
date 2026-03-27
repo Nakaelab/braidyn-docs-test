@@ -81,17 +81,70 @@
         <article class="step-card">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Check that AWS CLI is installed</h3>
+            <h3>Install the AWS CLI</h3>
             <p>
-              To interact with the dataset via command line, you must have the AWS CLI installed.
-              If you haven't installed it yet, please refer to the
-              <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">official AWS CLI installation guide</a>.
+              The AWS CLI is required on <strong>all operating systems</strong> (Windows, macOS, and Linux) to download the dataset.
+              Select your OS below and follow the installation instructions.
             </p>
-            <p>Once installed, open Terminal or PowerShell and run this command to verify:</p>
+
+            <div class="os-tabs" id="os-tabs-local">
+              <button class="os-tab active" data-os="windows">Windows</button>
+              <button class="os-tab" data-os="macos">macOS</button>
+              <button class="os-tab" data-os="linux">Linux</button>
+            </div>
+
+            <div class="os-panel active" data-os="windows" id="os-panel-local-windows">
+              <p>Download and run the official MSI installer:</p>
+              <ol>
+                <li>Download the installer from the <a href="https://awscli.amazonaws.com/AWSCLIV2.msi" target="_blank" rel="noopener noreferrer">official download link (AWSCLIV2.msi)</a>.</li>
+                <li>Run the downloaded <code>.msi</code> file and follow the on-screen instructions.</li>
+              </ol>
+              <p>Or install via the command line (PowerShell as Administrator):</p>
+              <div class="code-block">
+                <button class="copy-button" data-copy-target="code-install-win"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                <pre><code id="code-install-win">msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi</code></pre>
+              </div>
+            </div>
+
+            <div class="os-panel" data-os="macos" id="os-panel-local-macos">
+              <p>Install using the official PKG installer:</p>
+              <div class="code-block">
+                <button class="copy-button" data-copy-target="code-install-mac"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                <pre><code id="code-install-mac">curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /</code></pre>
+              </div>
+              <p>Or, if you use <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">Homebrew</a>:</p>
+              <div class="code-block">
+                <button class="copy-button" data-copy-target="code-install-mac-brew"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                <pre><code id="code-install-mac-brew">brew install awscli</code></pre>
+              </div>
+            </div>
+
+            <div class="os-panel" data-os="linux" id="os-panel-local-linux">
+              <p>Download, unzip, and run the installer:</p>
+              <div class="code-block">
+                <button class="copy-button" data-copy-target="code-install-linux"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                <pre><code id="code-install-linux">curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install</code></pre>
+              </div>
+              <p><strong>ARM (aarch64)</strong> users should use this URL instead:</p>
+              <div class="code-block">
+                <button class="copy-button" data-copy-target="code-install-linux-arm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                <pre><code id="code-install-linux-arm">curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install</code></pre>
+              </div>
+            </div>
+
+            <p style="margin-top: 18px;">After installation, open your terminal and verify with:</p>
             <div class="code-block">
               <button class="copy-button" data-copy-target="code-check-cli"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
               <pre><code id="code-check-cli">aws --version</code></pre>
             </div>
+            <p class="install-note">
+              For more details, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">official AWS CLI installation guide</a>.
+            </p>
           </div>
         </article>
 
