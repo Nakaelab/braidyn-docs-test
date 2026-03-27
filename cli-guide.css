@@ -359,6 +359,116 @@ pre {
   font-size: 0.92em;
 }
 
+/* ── Download selector ── */
+.download-selector {
+  margin-top: 12px;
+}
+
+.selector-group {
+  margin-bottom: 16px;
+}
+
+.selector-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.selector-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pill {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pill.active {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(45, 127, 184, 0.25);
+}
+
+.subject-input-area {
+  margin-bottom: 14px;
+  animation: fadeSlideIn 0.25s ease;
+}
+
+.subject-input-area label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.subject-input {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subject-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(45, 127, 184, 0.15);
+}
+
+.subject-input::placeholder {
+  color: #aab4c0;
+}
+
+.selector-description {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: rgba(45, 127, 184, 0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .site-footer {
   padding: 28px 0 40px;
   background: #fff;
