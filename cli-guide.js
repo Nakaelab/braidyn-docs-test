@@ -110,9 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const subjectArea  = document.getElementById(subjectAreaId);
     const subjectInput = document.getElementById(subjectInputId);
 
-    let activeSession  = "all";
-    let activeFiletype = "all-files";
-    let activeScope    = "all";
+    let activeSession  = "task";
+    let activeFiletype = "nwb";
+    let activeScope    = "subject";
 
     function update() {
       descEl.textContent  = buildDescription(activeSession, activeFiletype, activeScope);
@@ -145,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeScope === "subject") update();
       });
     }
+
+    // Apply initial state
+    update();
   }
 
   // Initialise both selectors
