@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download the BraiDyn-BC neuroscience dataset via AWS CLI or access it directly on AWS EC2. Step-by-step guide with OS-specific installation instructions." />
   <title>CLI / EC2 Access Guide | BraiDyn-BC Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="./cli-guide.css" />
 </head>
 <body>
@@ -22,7 +25,7 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">Download Guide</p>
+        <p class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download Guide</p>
         <h1>Download & Access the BraiDyn-BC Dataset</h1>
         <p class="lead">
           Get the BraiDyn-BC data your way. Easily download files to your local computer for quick exploration, or connect via AWS EC2 to process large amounts of data in the cloud.
@@ -88,9 +91,9 @@
             </p>
 
             <div class="os-tabs" id="os-tabs-local">
-              <button class="os-tab active" data-os="windows">Windows</button>
-              <button class="os-tab" data-os="macos">macOS</button>
-              <button class="os-tab" data-os="linux">Linux</button>
+              <button class="os-tab active" data-os="windows"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.5l9.9-1.4v9.6H0V3.5zm11 -1.6L24 0v11.7H11V1.9zM0 12.3h9.9v9.6L0 20.5v-8.2zm11 0H24V24l-13-1.8V12.3z"/></svg> Windows</button>
+              <button class="os-tab" data-os="macos"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> macOS</button>
+              <button class="os-tab" data-os="linux"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2c-1.82 0-2.76 1.08-2.97 2.76-.2 1.52.32 3.48.89 4.6.08.16.2.4.13.63-.07.22-.35.42-.54.53-1.09.61-2.43 1.56-3.24 2.86-.53.84-.87 2-.55 3.16.36 1.32 1.4 2.08 2.37 2.48.66.27 1.36.42 1.96.47.24.82.78 1.51 1.45 1.51s1.21-.69 1.45-1.51c.6-.05 1.3-.2 1.96-.47.97-.4 2.01-1.16 2.37-2.48.32-1.16-.02-2.32-.55-3.16-.81-1.3-2.15-2.25-3.24-2.86-.19-.11-.47-.31-.54-.53-.07-.23.05-.47.13-.63.57-1.12 1.09-3.08.89-4.6C14.26 3.08 13.32 2 12.5 2z"/></svg> Linux</button>
             </div>
 
             <div class="os-panel active" data-os="windows" id="os-panel-local-windows">
